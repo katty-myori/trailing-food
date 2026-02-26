@@ -1,0 +1,27 @@
+{% doc %}
+  Reusable theme block for food categories. Add this block to sections that support @theme blocks.
+{% enddoc %}
+
+<div class="category-card">
+  <a href="{{ block.settings.link }}">
+    {% if block.settings.image != blank %}
+      {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.title }}
+    {% else %}
+      {{ 'collection-1' | placeholder_svg_tag: 'category-card__image placeholder-svg' }}
+    {% endif %}
+    <div class="category-card__overlay">
+      <h3>{{ block.settings.title }}</h3>
+    </div>
+  </a>
+</div>
+
+{% schema %}
+{
+  "name": "Food category",
+  "settings": [
+    {"type": "text", "id": "title", "label": "Category title", "default": "Category"},
+    {"type": "image_picker", "id": "image", "label": "Category image"},
+    {"type": "url", "id": "link", "label": "Category link"}
+  ]
+}
+{% endschema %}

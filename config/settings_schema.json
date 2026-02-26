@@ -1,0 +1,36 @@
+[
+  {
+    "name": "Theme settings",
+    "settings": [
+      {
+        "type": "color",
+        "id": "primary_color",
+        "label": "Primary color",
+        "default": "#e4572e"
+      },
+      {
+        "type": "color",
+        "id": "secondary_color",
+        "label": "Secondary color",
+        "default": "#ff9f1c"
+      },
+      {
+        "type": "color",
+        "id": "background_color",
+        "label": "Background color",
+        "default": "#fff8f1"
+      },
+      {
+        "type": "font_picker",
+        "id": "body_font",
+        "label": "Body font",
+        "default": "assistant_n4"
+      },
+      {
+        "type": "image_picker",
+        "id": "default_food_banner",
+        "label": "Default food banner image"
+      }
+    ]
+  }
+]
