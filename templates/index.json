@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "hero": {
+      "type": "food-hero",
+      "settings": {
+        "heading": "Fresh Food Delivered Hot",
+        "subheading": "Discover Indian, Chinese, Italian, Fast Food, Desserts, and Drinks.",
+        "button_label": "Browse Menu"
+      }
+    },
+    "featured": {
+      "type": "featured-food-slider",
+      "settings": {
+        "heading": "Top Picks"
+      }
+    },
+    "categories": {
+      "type": "food-categories",
+      "blocks": {
+        "cat_1": {"type": "category", "settings": {"title": "Indian", "category_handle": "indian"}},
+        "cat_2": {"type": "category", "settings": {"title": "Chinese", "category_handle": "chinese"}},
+        "cat_3": {"type": "category", "settings": {"title": "Italian", "category_handle": "italian"}},
+        "cat_4": {"type": "category", "settings": {"title": "Fast Food", "category_handle": "fast-food"}},
+        "cat_5": {"type": "category", "settings": {"title": "Desserts", "category_handle": "desserts"}},
+        "cat_6": {"type": "category", "settings": {"title": "Drinks", "category_handle": "drinks"}}
+      },
+      "block_order": ["cat_1", "cat_2", "cat_3", "cat_4", "cat_5", "cat_6"],
+      "settings": {
+        "heading": "Browse by Category"
+      }
+    },
+    "product_grid": {
+      "type": "food-product-grid",
+      "settings": {
+        "heading": "Recommended For You",
+        "products_limit": 12
+      }
+    }
+  },
+  "order": ["hero", "featured", "categories", "product_grid"]
+}

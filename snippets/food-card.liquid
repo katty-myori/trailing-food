@@ -1,0 +1,28 @@
+{% liquid
+  assign product_category = product.type | default: product.vendor | default: 'food'
+%}
+<article class="food-card" data-category="{{ product_category | handleize }}">
+  <a href="{{ product.url }}" class="food-card__image-link">
+    {% if product.featured_image %}
+      {{ product.featured_image | image_url: width: 600 | image_tag: loading: 'lazy', class: 'food-card__image', alt: product.featured_image.alt | default: product.title }}
+    {% else %}
+      {{ 'product-1' | placeholder_svg_tag: 'food-card__image placeholder-svg' }}
+    {% endif %}
+  </a>
+
+  <div class="food-card__content">
+    <h3 class="food-card__title"><a href="{{ product.url }}">{{ product.title }}</a></h3>
+    <p class="food-card__price">{{ product.price | money }}</p>
+
+    {% form 'product', product, class: 'food-card__form' %}
+      <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+      <button type="submit" class="button button--primary" {% unless product.available %}disabled{% endunless %}>
+        {% if product.available %}
+          Add to cart
+        {% else %}
+          Sold out
+        {% endif %}
+      </button>
+    {% endform %}
+  </div>
+</article>

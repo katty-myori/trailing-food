@@ -1,0 +1,131 @@
+.testimonial-slider-section {
+  background: var(--testimonial-bg);
+  color: var(--testimonial-text);
+  padding-top: var(--testimonial-spacing-top);
+  padding-bottom: var(--testimonial-spacing-bottom);
+}
+
+.testimonial-slider__inner {
+  position: relative;
+}
+
+.testimonial-slider__heading {
+  margin: 0 0 1.5rem;
+  text-align: center;
+}
+
+.testimonial-slider {
+  align-items: center;
+  display: grid;
+  gap: 0.75rem;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+.testimonial-slider__viewport {
+  overflow: hidden;
+  width: 100%;
+}
+
+.testimonial-slider__track {
+  display: flex;
+  transition: transform 0.45s ease;
+  will-change: transform;
+}
+
+.testimonial-slide {
+  box-sizing: border-box;
+  flex: 0 0 100%;
+  padding: 0.25rem;
+}
+
+.testimonial-slide__content {
+  background: var(--testimonial-card-bg);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  padding: 1.25rem;
+  text-align: center;
+}
+
+.testimonial-slide__image-wrap {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.testimonial-slide__image,
+.testimonial-slide__placeholder {
+  border-radius: 999px;
+  height: 88px;
+  object-fit: cover;
+  width: 88px;
+}
+
+.testimonial-slide__name {
+  margin: 0 0 0.5rem;
+}
+
+.testimonial-slide__stars {
+  color: #ff8a00;
+  font-size: 1.125rem;
+  letter-spacing: 0.125rem;
+  margin-bottom: 0.75rem;
+}
+
+.testimonial-slide__review {
+  margin: 0;
+  opacity: 0.92;
+}
+
+.testimonial-slider__nav {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+  color: var(--testimonial-text);
+  cursor: pointer;
+  font-size: 1.1rem;
+  height: 2.5rem;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  width: 2.5rem;
+}
+
+.testimonial-slider__nav:hover {
+  background: #fff2e8;
+  transform: scale(1.04);
+}
+
+.testimonial-slider__dots {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.testimonial-slider__dot {
+  background: rgba(0, 0, 0, 0.2);
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  height: 0.55rem;
+  padding: 0;
+  width: 0.55rem;
+}
+
+.testimonial-slider__dot.is-active {
+  background: #ff6a00;
+  width: 1.4rem;
+}
+
+@media screen and (max-width: 749px) {
+  .testimonial-slider {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-slider__nav {
+    display: none;
+  }
+
+  .testimonial-slide__content {
+    padding: 1rem;
+  }
+}

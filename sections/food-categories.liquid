@@ -1,0 +1,64 @@
+<section class="food-categories page-width">
+  <div class="section-head">
+    <h2>{{ section.settings.heading }}</h2>
+  </div>
+
+  <div class="category-filters" role="tablist" aria-label="Food categories">
+    <button class="chip is-active" data-food-filter="all" type="button">All</button>
+    {% for block in section.blocks %}
+      <button class="chip" data-food-filter="{{ block.settings.category_handle | handleize }}" type="button">{{ block.settings.title }}</button>
+    {% endfor %}
+  </div>
+
+  <div class="food-categories__grid">
+    {% for block in section.blocks %}
+      <article class="category-card" {{ block.shopify_attributes }}>
+        <a href="{{ block.settings.link }}">
+          {% if block.settings.image != blank %}
+            {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', alt: block.settings.title }}
+          {% else %}
+            {{ 'collection-2' | placeholder_svg_tag: 'category-card__image placeholder-svg' }}
+          {% endif %}
+          <div class="category-card__overlay">
+            <h3>{{ block.settings.title }}</h3>
+          </div>
+        </a>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Food category cards",
+  "settings": [
+    {"type": "text", "id": "heading", "label": "Heading", "default": "Popular Categories"}
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "Category",
+      "settings": [
+        {"type": "text", "id": "title", "label": "Title", "default": "Indian"},
+        {"type": "text", "id": "category_handle", "label": "Category handle", "default": "indian"},
+        {"type": "image_picker", "id": "image", "label": "Image"},
+        {"type": "url", "id": "link", "label": "Category link"}
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Food category cards",
+      "blocks": [
+        {"type": "category", "settings": {"title": "Indian", "category_handle": "indian"}},
+        {"type": "category", "settings": {"title": "Chinese", "category_handle": "chinese"}},
+        {"type": "category", "settings": {"title": "Italian", "category_handle": "italian"}},
+        {"type": "category", "settings": {"title": "Fast Food", "category_handle": "fast-food"}},
+        {"type": "category", "settings": {"title": "Desserts", "category_handle": "desserts"}},
+        {"type": "category", "settings": {"title": "Drinks", "category_handle": "drinks"}}
+      ]
+    }
+  ]
+}
+{% endschema %}
